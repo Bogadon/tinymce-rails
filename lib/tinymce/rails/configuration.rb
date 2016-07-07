@@ -107,7 +107,7 @@ module TinyMCE::Rails
     end
   
     def self.assets
-      Rails.application.assets
+      @assets ||= Rails.application.assets || ::Sprockets::Railtie.build_environment(Rails.application)
     end
   end
   
